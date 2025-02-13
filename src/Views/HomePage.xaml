@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
+             xmlns:dxg="http://schemas.devexpress.com/maui"
+             xmlns:helpers="clr-namespace:YahooScraper.Helpers"
+             x:Class="YahooScraper.Views.HomePage"
+             Padding="16,24">
+    <dxg:DXScrollView >
+        <VerticalStackLayout Spacing="16">
+            <dxe:DateEdit DisplayFormat="dd MMM yyyy"
+                          MinDate="{Binding MinDate}"
+                          MaxDate="{Binding TodayDate}"
+                          DateChangedCommand="{Binding DateChangedCommand}"
+                          Date="{Binding SelectedDate}"
+                          PickerFirstDayOfWeek="Monday"/>
+            <dxg:DataGridView
+                ItemsSource="{Binding MyCompanies}"
+                RowTapCommand="{Binding NavigateToDetailsCommand}"
+                PullToRefreshCommand="{Binding ReloadCompanyDataCommand}"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding MyCompaniesIsRefreshing}"
+                VerticalOptions="Start"
+                HeightRequest="590"
+                CustomCellAppearance="DataGridView_CustomCellAppearance">
+                <dxg:DataGridView.Columns>
+                    <dxg:TextColumn
+                        HorizontalHeaderAlignment="Start"
+                        HeaderPadding="8,6"
+                        FieldName="Symbol"
+                        Caption="{helpers:Translate SymbolLabel}"
+                        LineBreakMode="TailTruncation"/>
+                    <dxg:TextColumn
+                        HorizontalHeaderAlignment="Start"
+                        HeaderPadding="8,6"
+                        FieldName="PriceInfo.OpenPriceString"
+                        Caption="{helpers:Translate OpenPriceLabel}"
+                        DisplayFormat="C2"
+                        LineBreakMode="TailTruncation"/>
+                    <dxg:TextColumn
+                        HorizontalHeaderAlignment="Start"
+                        HeaderPadding="8,6"
+                        FieldName="PriceInfo.PreviousClosePriceString"
+                        Caption="{helpers:Translate PrevClosePriceLabel}"
+                        DisplayFormat="C2"
+                        LineBreakMode="TailTruncation"/>
+                </dxg:DataGridView.Columns>
+            </dxg:DataGridView>
+        </VerticalStackLayout>
+    </dxg:DXScrollView>
+</ContentPage>

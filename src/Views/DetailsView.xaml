@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxg="http://schemas.devexpress.com/maui"
+             xmlns:helpers="clr-namespace:YahooScraper.Helpers"
+             x:Class="YahooScraper.Views.DetailsView"
+             Title="{Binding SelectedCompany.CompanyName}">
+    <VerticalStackLayout Padding="25,20" Spacing="24">
+        <VerticalStackLayout Spacing="8">
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="{helpers:Translate SymbolDetailsLabel}"/>
+                <Label Text="{Binding SelectedCompany.Symbol}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="{helpers:Translate NameDetailsLabel}"/>
+                <Label Text="{Binding SelectedCompany.CompanyName}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="{helpers:Translate MarketCapDetailsLabel}"/>
+                <Label Text="{Binding SelectedCompany.MarketCap}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="{helpers:Translate YearFoundedDetailsLabel}"/>
+                <Label Text="{Binding SelectedCompany.YearFounded}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="{helpers:Translate NumberOfEmployeesDetailsLabel}"/>
+                <Label Text="{Binding SelectedCompany.NumberOfEmployees}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="{helpers:Translate CityDetailsLabel}"/>
+                <Label Text="{Binding SelectedCompany.City}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="{helpers:Translate StateDetailsLabel}"/>
+                <Label Text="{Binding SelectedCompany.State}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <dxg:DataGridView
+            ItemsSource="{Binding SelectedCompanyPrices}"
+            PullToRefreshCommand="{Binding ReloadCompanyPricesDataCommand}"
+            IsPullToRefreshEnabled="True"
+            IsRefreshing="{Binding IsLoadingPrices}"
+            CustomCellAppearance="DataGridView_CustomCellAppearance"
+            HeightRequest="465">
+            <dxg:DataGridView.Columns>
+                <dxg:DateColumn
+                    FieldName="DateTime"
+                    Caption="{helpers:Translate DateLabel}"
+                    HorizontalHeaderAlignment="Start"
+                    HeaderPadding="8,6"
+                    LineBreakMode="TailTruncation"
+                    DisplayFormat="dd MMM yyyy"/> 
+                <dxg:TextColumn 
+                    FieldName="OpenPriceString"
+                    Caption="{helpers:Translate OpenPriceLabel}"
+                    HorizontalHeaderAlignment="Start"
+                    HeaderPadding="8,6"
+                    LineBreakMode="TailTruncation"/>
+                <dxg:TextColumn
+                    FieldName="PreviousClosePriceString"
+                    Caption="{helpers:Translate PrevClosePriceLabel}"
+                    HorizontalHeaderAlignment="Start"
+                    HeaderPadding="8,6"
+                    LineBreakMode="TailTruncation"/>
+            </dxg:DataGridView.Columns>
+        </dxg:DataGridView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,86 @@
+﻿<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="AddTab" xml:space="preserve">
+        <value>BA Add</value>
+    </data>
+    <data name="CityDetailsLabel" xml:space="preserve">
+        <value>BA City:</value>
+    </data>
+    <data name="DateLabel" xml:space="preserve">
+        <value>BA Date</value>
+    </data>
+    <data name="HomeTab" xml:space="preserve">
+        <value>BA Home</value>
+    </data>
+    <data name="LanguageLabel" xml:space="preserve">
+        <value>BA Language</value>
+    </data>
+    <data name="MarketCapDetailsLabel" xml:space="preserve">
+        <value>BA Market cap:</value>
+    </data>
+    <data name="NameDetailsLabel" xml:space="preserve">
+        <value>BA Name:</value>
+    </data>
+    <data name="NameLabel" xml:space="preserve">
+        <value>BA Name</value>
+    </data>
+    <data name="NumberOfEmployeesDetailsLabel" xml:space="preserve">
+        <value>BA Number of employees:</value>
+    </data>
+    <data name="OpenPriceLabel" xml:space="preserve">
+        <value>BA Open price</value>
+    </data>
+    <data name="PrevClosePriceLabel" xml:space="preserve">
+        <value>BA Prev close price</value>
+    </data>
+    <data name="SettingsTab" xml:space="preserve">
+        <value>BA Settings</value>
+    </data>
+    <data name="StateDetailsLabel" xml:space="preserve">
+        <value>BA State:</value>
+    </data>
+    <data name="SymbolDetailsLabel" xml:space="preserve">
+        <value>BA Symbol:</value>
+    </data>
+    <data name="SymbolLabel" xml:space="preserve">
+        <value>BA Symbol</value>
+    </data>
+    <data name="TickerLabel" xml:space="preserve">
+        <value>BA Ticker</value>
+    </data>
+    <data name="YearFoundedDetailsLabel" xml:space="preserve">
+        <value>BA Year founded:</value>
+    </data>
+    <data name="NoLabel" xml:space="preserve">
+        <value>BA NO</value>
+    </data>
+    <data name="OkLabel" xml:space="preserve">
+        <value>BA OK</value>
+    </data>
+    <data name="YesLabel" xml:space="preserve">
+        <value>BA YES</value>
+    </data>
+    <data name="DeleteItemMessage" xml:space="preserve">
+        <value>BA Are you sure you want to delete this item?</value>
+    </data>
+    <data name="DeleteItemTitle" xml:space="preserve">
+        <value>BA Delete {0}</value>
+    </data>
+    <data name="ItemExistTitle" xml:space="preserve">
+        <value>BA Item {0}</value>
+    </data>
+    <data name="ItemExistMessage" xml:space="preserve">
+        <value>BA Symbol is already added.</value>
+    </data>
+</root>

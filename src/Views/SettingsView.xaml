@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dx="http://schemas.devexpress.com/maui"
+             xmlns:helpers="clr-namespace:YahooScraper.Helpers"
+             x:Class="YahooScraper.Views.SettingsView">
+    <VerticalStackLayout Padding="25,20"
+                         Spacing="8">
+        <Grid RowDefinitions="*,Auto"
+              RowSpacing="8">
+            <Label Text="{helpers:Translate LanguageLabel}"/>
+            <dx:ComboBoxEdit 
+                Grid.Row="1"
+                DisplayMember="Name"
+                FilterCondition="Contains"
+                FilterComparisonType="CurrentCultureIgnoreCase"
+                SelectedItem="{Binding SelectedLanguage}"
+                ItemsSource="{Binding AllLanguages}"
+                IsDropDownIconVisible="True"
+                BoxPadding="12,0,12,0"
+                IconVerticalAlignment="Center"
+                IconSpacing="8"
+                IconColor="Black"
+                PlaceholderText="{helpers:Translate SearchLabel}"
+                TextHorizontalAlignment="Start"
+                TextVerticalAlignment="Center"
+                BorderThickness="1"
+                IsErrorIconVisible="False"
+                SelectionChangedCommand="{Binding LanguageChangedCommand}"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dx="http://schemas.devexpress.com/maui"
+             xmlns:helpers="clr-namespace:YahooScraper.Helpers"
+             xmlns:dxg="http://schemas.devexpress.com/maui"
+             xmlns:viewModels="clr-namespace:YahooScraper.ViewModels"
+             x:Class="YahooScraper.Views.AddView">
+    <ScrollView Padding="16,24">
+        <VerticalStackLayout Spacing="16">
+            <dx:AutoCompleteEdit 
+                Text="{Binding SearchInput}"
+                PlaceholderText="{helpers:Translate TickerLabel}"
+                TextChangedCommand="{Binding SearchChangedCommand}"
+                ItemsSource="{Binding QuoteItems}"
+                DisplayMember="SearchValue"
+                SubmitIconVisibility="Never"
+                ClearIconVisibility="Never" 
+                SelectionChangedCommand="{Binding AddQuoteCommand}"
+                SelectedItem="{Binding SelectedQuoteItem}"
+                IsDropDownOpen="{Binding IsSearchOpen}"
+                SubmitCommand="{Binding SubmitCommand}"
+                SelectionChanged="SelectionChanged"/>
+            <dxg:DataGridView
+                ItemsSource="{Binding MyCompanies}"
+                RowTapCommand="{Binding NavigateToDetailsCommand}"
+                HeightRequest="590"
+                CustomCellAppearance="DataGridView_CustomCellAppearance">
+                <dxg:DataGridView.Columns>
+                    <dxg:TextColumn
+                        Width="120"
+                        FieldName="Symbol"
+                        Caption="{helpers:Translate SymbolLabel}"
+                        HorizontalHeaderAlignment="Start"
+                        HeaderPadding="8,6"
+                        LineBreakMode="TailTruncation"/>
+                    <dxg:TextColumn
+                        FieldName="CompanyName"
+                        Caption="{helpers:Translate NameLabel}"
+                        HorizontalHeaderAlignment="Start"
+                        HeaderPadding="8,6"
+                        LineBreakMode="TailTruncation"/>
+                    <dxg:TemplateColumn
+                        Width="25">
+                        <dxg:TemplateColumn.DisplayTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <dxg:DXImage TintColor="Red" 
+                                                 WidthRequest="25"
+                                                 Source="delete">
+                                        <dxg:DXImage.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="{Binding Item}" 
+                                                                  Command ="{Binding DeleteItemCommand, Source={RelativeSource FindAncestorBindingContext, AncestorType={x:Type viewModels:MainViewModel}}}"/>
+                                        </dxg:DXImage.GestureRecognizers>
+                                    </dxg:DXImage>
+                                </Grid>
+                            </DataTemplate>
+                        </dxg:TemplateColumn.DisplayTemplate>
+                    </dxg:TemplateColumn>
+                </dxg:DataGridView.Columns>
+            </dxg:DataGridView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
